@@ -12,12 +12,12 @@ export default function Navbar(props) {
         <a>Home</a>
       </Link>
 
-      <Link href={"about"}>
+      <Link href={"/about"}>
         <a>About</a>
       </Link>
 
-      <Link href={"my-listing"}>
-        <a>My Listing</a>
+      <Link href={"/users"}>
+        <a>Users</a>
       </Link>
     </nav>
   );

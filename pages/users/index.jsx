@@ -1,4 +1,5 @@
-import styles from "../styles/Users.module.css";
+import styles from "../../styles/Users.module.css";
+import Link from "next/link";
 
 export async function getStaticProps(context) {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -14,11 +15,11 @@ function Users({ data }) {
     <div>
       <h1>All users</h1>
       {data.map((user) => (
-        <div key={user.id}>
+        <Link href={`/users/${user.id}`} key={user.id}>
           <a className={styles["single"]}>
             <h3>{user.name}</h3>
           </a>
-        </div>
+        </Link>
       ))}
     </div>
   );
