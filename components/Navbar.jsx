@@ -1,10 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar(props) {
   return (
     <nav>
       <div className="logo">
-        <h1>My List</h1>
+        <Image src={"/next-js-logo.png"} width={77} height={77} />
       </div>
 
       <Link href={"/"}>
