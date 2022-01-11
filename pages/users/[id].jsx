@@ -12,7 +12,7 @@ export async function getStaticPaths(ctx) {
 
   return {
     paths, // [{}, {}, {}, ...]
-    fallback: false,
+    fallback: "blocking", // when a request is made to a page that hasn't been generated, Next.js will server-render the page on the first request. Future requests will serve the static file from the cache.
   };
 }
 
@@ -23,6 +23,7 @@ export async function getStaticProps(ctx) {
 
   return {
     props: { data },
+    revalidate: 10, // Next.js triggers regeneration of the page (rebuild) in the background for every 10s.
   };
 }
 
