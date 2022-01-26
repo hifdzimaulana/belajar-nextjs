@@ -1,23 +1,5 @@
-// {STATIC SITE GENERATION}
-
-export async function getStaticPaths(ctx) {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  const data = await res.json();
-
-  const paths = data.map((user) => {
-    return {
-      params: { id: user.id.toString() }, // the key name in params should be same with the file name/slug name
-    };
-  });
-
-  return {
-    paths, // [{}, {}, {}, ...]
-    fallback: false,
-  };
-}
-
-export async function getStaticProps(ctx) {
-  const id = ctx.params.id;
+export async function getServerSideProps(ctx) {
+  const { id } = ctx.params;
   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
   const data = await res.json();
 
